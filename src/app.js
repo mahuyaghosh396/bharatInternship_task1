@@ -1,12 +1,12 @@
 const express = require('express');
 const app = express();
-
+const cors = require('cors');
 const bcrypt = require('bcrypt');
-
+app.use(cors());
 let port = 3000;
 const path = require('path');
 const empCollection = require('./model/model');
-const template_path = path.join(__dirname, "../templates/views");
+const template_path = path.join(__dirname, "..");
 app.engine('html', require('ejs').renderFile);
 app.set('view engine', 'html');
 app.set('views', template_path);
