@@ -7,8 +7,8 @@ let port = 3000;
 const path = require('path');
 const empCollection = require('./model/model');
 const template_path = path.join(__dirname, "../templates/views");
-
-app.set('view engine', 'hbs');
+app.engine('html', require('ejs').renderFile);
+app.set('view engine', 'html');
 app.set('views', template_path);
 require('./db/db.js');
 
